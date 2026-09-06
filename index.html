@@ -7,6 +7,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Snap Pixel Code -->
+  <script type="text/javascript">
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+  {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  u.parentNode.insertBefore(r,u);})(window,document,
+  'https://sc-static.net/scevent.min.js');
+
+  snaptr('init', 'c3010d63-62ef-4ed8-a20a-38376415eaac', {});
+  snaptr('track', 'PAGE_VIEW');
+  </script>
+  <!-- End Snap Pixel Code -->
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -346,5 +359,15 @@
     <p><b>Disclaimer:</b> There is no charge to use this page to check your eligibility. Solar contract review options, availability, and results vary by provider, location, and contract terms.</p>
     <p class="footer-copy">&copy; 2026</p>
   </footer>
+
+  <script>
+    document.querySelectorAll(".btn.yes, .btn.no").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (typeof snaptr === "function") {
+          snaptr("track", "SIGN_UP");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
