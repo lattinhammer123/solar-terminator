@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Solar Contract Review Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Poppins, sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      background: #e8453c;
+      padding: 11px 20px;
+      text-align: center;
+    }
+
+    .top-bar h1 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 640px;
+    }
+
+    .hero-left {
+      padding: 44px 50px 44px 60px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .headline {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111;
+      margin-bottom: 36px;
+    }
+
+    .elig-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 36px;
+      padding-left: 20px;
+    }
+
+    .elig-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: #111;
+    }
+
+    .elig-item .ck {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .elig-item strong {
+      font-weight: 700;
+    }
+
+    .alert-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      font-size: 16px;
+      color: #111;
+    }
+
+    .warn-icon {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    a.btn,
+    button.btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 20px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      border: 0;
+    }
+
+    .yes {
+      background: #4157d5;
+      color: #fff;
+    }
+
+    .yes:hover {
+      background: #3349c0;
+    }
+
+    .no {
+      background: #ececef;
+      color: #111;
+    }
+
+    .no:hover {
+      background: #dddde2;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer {
+      background: #f1f1f1;
+      padding: 34px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer p {
+      max-width: 860px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #111;
+    }
+
+    .footer-copy {
+      font-size: 13px !important;
+      color: #666 !important;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .decline {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .decline h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .decline p {
+      font-size: 16px;
+      color: #444;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        height: 320px;
+        order: -1;
+      }
+
+      .hero-left {
+        padding: 32px 28px 40px;
+      }
+
+      .headline {
+        font-size: 28px;
+      }
+
+      a.btn,
+      button.btn {
+        font-size: 20px;
+        padding: 18px 16px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .top-bar h1 {
+        font-size: 13px;
+      }
+
+      .hero-right {
+        height: 240px;
+      }
+
+      .hero-left {
+        padding: 22px 16px 32px;
+      }
+
+      .headline {
+        font-size: 22px;
+        margin-bottom: 24px;
+      }
+
+      .elig-list {
+        padding-left: 0;
+        margin-bottom: 24px;
+        gap: 8px;
+      }
+
+      .elig-item,
+      .alert-row {
+        font-size: 14px;
+      }
+
+      .alert-row {
+        margin-bottom: 18px;
+      }
+
+      .warn-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .question {
+        font-size: 17px;
+      }
+
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+
+      a.btn,
+      button.btn {
+        font-size: 18px;
+        padding: 16px 12px;
+      }
+
+      .decline h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h1>2026 Solar Contract Review Service</h1>
+  </div>
+
+  <div id="question">
+    <section class="hero">
+      <div class="hero-left">
+        <h2 class="headline">NEW "2026" Solar Contract Review Helps US Homeowners Cancel Unwanted Solar Agreements</h2>
+
+        <div class="elig-list">
+          <div class="elig-item">
+            <span class="ck">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 13L9 18L20 7" stroke="#22a45d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Must be a <strong>homeowner</strong>
+          </div>
+          <div class="elig-item">
+            <span class="ck">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 13L9 18L20 7" stroke="#22a45d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Must be a <strong>US resident</strong>
+          </div>
+          <div class="elig-item">
+            <span class="ck">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 13L9 18L20 7" stroke="#22a45d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Must have an <strong>active solar contract</strong>
+          </div>
+        </div>
+
+        <div class="alert-row">
+          <svg class="warn-icon" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 1.5L36.5 32.5H1.5L19 1.5Z" fill="#F5C518" stroke="#D4A012" stroke-width="1"/>
+            <rect x="17.2" y="12" width="3.6" height="11" rx="1.8" fill="#1a1a1a"/>
+            <rect x="17.2" y="25.5" width="3.6" height="3.6" rx="1.8" fill="#1a1a1a"/>
+          </svg>
+          <span><strong>Alert</strong><br>Eligible Homeowners Should Review Their Contract Options Promptly</span>
+        </div>
+
+        <p class="question">Do you have a solar contract you want to cancel?</p>
+        <div class="buttons">
+          <a class="btn yes" href="https://www.solarterminator.com/">Yes</a>
+          <button class="btn no" type="button" id="no-btn">No</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img src="hero.jpg?v=2" alt="Homeowner installing solar panels on a residential rooftop">
+      </div>
+    </section>
+  </div>
+
+  <div id="decline" class="hidden">
+    <div class="decline">
+      <h2>Thanks for answering.</h2>
+      <p>This service is only for US homeowners with an active solar contract who want to review cancellation options.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p><b>Disclaimer:</b> There is no charge to use this page to check your eligibility. Solar contract review options, availability, and results vary by provider, location, and contract terms.</p>
+    <p class="footer-copy">&copy; 2026</p>
+  </footer>
+
+  <script>
+    document.getElementById("no-btn").addEventListener("click", function () {
+      document.getElementById("question").classList.add("hidden");
+      document.getElementById("decline").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
